@@ -2,7 +2,7 @@ package api
 
 import (
 	"github.com/gin-gonic/gin"
-	db "github.com/ozhey/concordance/controller/database"
+	db "github.com/yochaipagi/dataBaseProject/controller/database"
 	"net/http"
 	"strconv"
 )

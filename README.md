@@ -17,7 +17,7 @@ Note: The project may work with earlier versions, but it's not guaranteed.
 
 1. Clone the repository to your local machine:
     ```sh
-    git clone https://github.com/ozhey/concordance.git
+    git clone https://github.com/yochaipagi/dataBaseProject.git
     ```
 2. Set up the database:  
     * Create a new PostgreSQL database using Docker:

@@ -1,4 +1,4 @@
-module github.com/ozhey/concordance/controller
+module github.com/yochaipagi/dataBaseProject/controller
 
 go 1.18
 

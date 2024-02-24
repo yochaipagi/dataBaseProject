@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/joho/godotenv"
-	"github.com/ozhey/concordance/controller/api"
-	"github.com/ozhey/concordance/controller/database"
+	"github.com/yochaipagi/dataBaseProject/controller/api"
+	"github.com/yochaipagi/dataBaseProject/controller/database"
 	"log"
 )
 
