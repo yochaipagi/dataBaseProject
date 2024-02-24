@@ -4,7 +4,7 @@ import (
 	"github.com/joho/godotenv"
 	"github.com/yochaipagi/dataBaseProject/controller/api"
 	"github.com/yochaipagi/dataBaseProject/controller/database"
-	"log"
+	"log" //asdfasdf
 )
 
 func main() {
