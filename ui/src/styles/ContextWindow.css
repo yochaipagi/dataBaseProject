@@ -1,0 +1,23 @@
+.context-window {
+    display: flex;
+    margin: 20px 0;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    min-height: 200px;
+    border: 1px solid RGB(0, 0, 0, 0.05);
+
+}
+
+.context-window__arrows {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-right: 20px;
+}
+
+.context-window__lines {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}

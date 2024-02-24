@@ -1,0 +1,37 @@
+.content-manager__nav {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.content-form {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0 30px;
+}
+
+.content-form label {
+    margin: 23px 0 5px 0;
+}
+
+.content-form input, .content-form textarea, .content-form select {
+    padding: 10px;
+}
+
+.content-form__error {
+    font-size: 12px;
+    color: crimson;
+    margin-top: 2px;
+}
+.content-form__note {
+    font-size: 12px;
+    margin-left: 2px;
+}
+
+.content-form__header {
+    margin: 20px 0 0;
+}
+.content-form input[type=submit] {
+    margin-top: 20px;
+    cursor: pointer;
+}

@@ -1,0 +1,58 @@
+.index {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 400px);
+    justify-content: center;
+    gap: 10px;
+}
+
+.index__word__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.index__word {
+    display: inline-grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    grid-gap: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid RGB(0, 0, 0, 0.1);
+}
+
+
+.index__word__table {
+    background-color: #ffffff;
+    margin-top: -3px;
+    border-radius: 0 0 5px 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border: 1px solid RGB(0, 0, 0, 0.07);
+    padding: 5px;
+}
+
+.index__word__row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    width: 100%;
+}
+.index__word__row--clickable {
+    cursor: pointer;
+}
+
+.index__word__row--clickable:hover {
+    cursor: pointer;
+    background-color: #e6eff5;
+}
+
+
+.index__pagination {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 15px;
+}

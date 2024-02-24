@@ -1,0 +1,46 @@
+.article_card {
+    border-radius: 20px;
+    padding: 30px;
+    margin: 10px 0;
+    background-color: white;
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.15);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.article_card:hover {
+    box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.3);
+}
+
+.article_page {
+    padding: 30px;
+}
+
+.article__title {
+    margin-bottom: 20px;
+}
+
+.article__section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: small;
+}
+
+.article__content {
+    margin-top: 20px;
+}
+
+.article__content p {
+    margin: 5px 0;
+}
+
+.article__buttons {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+}
+
+.article__ling__occurrences {
+
+}

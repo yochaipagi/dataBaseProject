@@ -1,0 +1,251 @@
+package concordance
+
+import "time"
+
+/*
+##########
+Indexes only on primary keys
+##########
+*/
+
+type Base struct {
+	ID        uint `gorm:"primarykey"`
+	CreatedAt time.Time
+	UpdatedAt time.Time
+}
+
+type Article struct {
+	Base
+	PublishedAt  time.Time     `json:"published_at"`
+	Author       string        `json:"author"`
+	Title        string        `json:"title"`
+	Source       string        `json:"source"`
+	ArticlePages []ArticlePage `json:",omitempty"`
+	PagesCount   int           `json:"pages_count"`
+}
+
+type ArticlePage struct {
+	Base
+	ArticleID    uint
+	PageNumber   int
+	ArticleLines []ArticleLine `json:",omitempty"`
+}
+
+type ArticleLine struct {
+	Base
+	ArticlePageID uint
+	LineNumber    int
+	ArticleWords  []ArticleWord `json:",omitempty"`
+	WordCount     int
+}
+
+type ArticleWord struct {
+	Base
+	ArticleLineID uint
+	WordNumber    int
+	Word          string
+	CharCount     int
+}
+
+type WordGroup struct {
+	Base
+	Name  string `json:"name" binding:"required"`
+	Words []Word `json:"words" binding:"required"`
+}
+
+type Word struct {
+	Base
+	WordGroupID uint
+	Word        string `json:"word" binding:"required"`
+}
+
+type LinguisticExpr struct {
+	Base
+	Expression string `json:"expression" binding:"required"`
+}
+
+/*
+##########
+Indexes on primary and foreign keys
+##########
+*/
+
+type Base struct {
+	ID        uint `gorm:"primarykey"`
+	CreatedAt time.Time
+	UpdatedAt time.Time
+}
+
+type Article struct {
+	Base
+	PublishedAt  time.Time     `json:"published_at"`
+	Author       string        `json:"author"`
+	Title        string        `json:"title"`
+	Source       string        `json:"source"`
+	ArticlePages []ArticlePage `json:",omitempty"`
+	PagesCount   int           `json:"pages_count"`
+}
+
+type ArticlePage struct {
+	Base
+	ArticleID    uint `gorm:"index"`
+	PageNumber   int
+	ArticleLines []ArticleLine `json:",omitempty"`
+}
+
+type ArticleLine struct {
+	Base
+	ArticlePageID uint `gorm:"index"`
+	LineNumber    int
+	ArticleWords  []ArticleWord `json:",omitempty"`
+	WordCount     int
+}
+
+type ArticleWord struct {
+	Base
+	ArticleLineID uint `gorm:"index"`
+	WordNumber    int
+	Word          string
+	CharCount     int
+}
+
+type WordGroup struct {
+	Base
+	Name  string `json:"name" binding:"required"`
+	Words []Word `json:"words" binding:"required"`
+}
+
+type Word struct {
+	Base
+	WordGroupID uint   `gorm:"index"`
+	Word        string `json:"word" binding:"required"`
+}
+
+type LinguisticExpr struct {
+	Base
+	Expression string `json:"expression" binding:"required"`
+}
+
+/*
+##########
+Indexes on primary and foreign keys, and additional columns
+##########
+*/
+
+type Base struct {
+	ID        uint `gorm:"primarykey"`
+	CreatedAt time.Time
+	UpdatedAt time.Time
+}
+
+type Article struct {
+	Base
+	PublishedAt  time.Time     `json:"published_at"`
+	Author       string        `json:"author"`
+	Title        string        `json:"title"`
+	Source       string        `json:"source"`
+	ArticlePages []ArticlePage `json:",omitempty"`
+	PagesCount   int           `json:"pages_count"`
+}
+
+type ArticlePage struct {
+	Base
+	ArticleID    uint `gorm:"index"`
+	PageNumber   int `gorm:"index"`
+	ArticleLines []ArticleLine `json:",omitempty"`
+}
+
+type ArticleLine struct {
+	Base
+	ArticlePageID uint `gorm:"index"`
+	LineNumber    int `gorm:"index"`
+	ArticleWords  []ArticleWord `json:",omitempty"`
+	WordCount     int
+}
+
+type ArticleWord struct {
+	Base
+	ArticleLineID uint `gorm:"index"`
+	WordNumber    int `gorm:"index"`
+	Word          string
+	CharCount     int
+}
+
+type WordGroup struct {
+	Base
+	Name  string `json:"name" binding:"required"`
+	Words []Word `json:"words" binding:"required"`
+}
+
+type Word struct {
+	Base
+	WordGroupID uint   `gorm:"index"`
+	Word        string `json:"word" binding:"required"`
+}
+
+type LinguisticExpr struct {
+	Base
+	Expression string `json:"expression" binding:"required"`
+}
+
+/*
+##########
+Hash indexes on primary and foreign keys, and additional columns
+##########
+*/
+
+type Base struct {
+	ID        uint `gorm:"primarykey"`
+	CreatedAt time.Time
+	UpdatedAt time.Time
+}
+
+type Article struct {
+	Base
+	PublishedAt  time.Time     `json:"published_at"`
+	Author       string        `json:"author"`
+	Title        string        `json:"title"`
+	Source       string        `json:"source"`
+	ArticlePages []ArticlePage `json:",omitempty"`
+	PagesCount   int           `json:"pages_count"`
+}
+
+type ArticlePage struct {
+	Base
+	ArticleID    uint `gorm:"index:,type:hash"`
+	PageNumber   int `gorm:"index:,type:hash"`
+	ArticleLines []ArticleLine `json:",omitempty"`
+}
+
+type ArticleLine struct {
+	Base
+	ArticlePageID uint `gorm:"index:,type:hash"`
+	LineNumber    int `gorm:"index:,type:hash"`
+	ArticleWords  []ArticleWord `json:",omitempty"`
+	WordCount     int
+}
+
+type ArticleWord struct {
+	Base
+	ArticleLineID uint `gorm:"index:,type:hash"`
+	WordNumber    int `gorm:"index:,type:hash"`
+	Word          string
+	CharCount     int
+}
+
+type WordGroup struct {
+	Base
+	Name  string `json:"name" binding:"required"`
+	Words []Word `json:"words" binding:"required"`
+}
+
+type Word struct {
+	Base
+	WordGroupID uint   `gorm:"index:,type:hash"`
+	Word        string `json:"word" binding:"required"`
+}
+
+type LinguisticExpr struct {
+	Base
+	Expression string `json:"expression" binding:"required"`
+}
