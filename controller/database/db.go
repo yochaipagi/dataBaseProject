@@ -1,10 +1,12 @@
 package database
 
 import (
+	"fmt"
+	"os"
+
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
-	"os"
 )
 
 const (
@@ -14,25 +16,54 @@ const (
 var DB *gorm.DB
 
 func SetupDB() error {
-	var err error
-	if DB, err = gorm.Open(postgres.Open(os.Getenv(dsnKey)), &gorm.Config{
+	dsn := os.Getenv(dsnKey)
+	if dsn == "" {
+		return fmt.Errorf("environment variable %s is not set", dsnKey)
+	}
+
+	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{
 		Logger: logger.Default.LogMode(logger.Silent),
-	}); err != nil {
-		return err
+	})
+	if err != nil {
+		return fmt.Errorf("failed to connect to the database: %v", err)
 	}
 
-	if err = DB.AutoMigrate(&Article{}, &ArticleLine{}, &ArticleWord{}, &WordGroup{}, &Word{}, &LinguisticExpr{}); err != nil {
-		return err
+	DB = db
+
+	err = migrateDB()
+	if err != nil {
+		return fmt.Errorf("failed to migrate the database: %v", err)
 	}
 
-	// don't populate if there's already data
-	if res := DB.First(&ArticleWord{}); res.Error == nil {
+	if isDatabasePopulated() {
 		return nil
 	}
 
-	if err = populateDB(); err != nil {
-		return err
+	err = populateDB()
+	if err != nil {
+		return fmt.Errorf("failed to populate the database: %v", err)
 	}
 
 	return nil
+}
+
+func migrateDB() error {
+	err := DB.AutoMigrate(
+		&Article{},
+		&ArticleLine{},
+		&ArticleWord{},
+		&WordGroup{},
+		&Word{},
+		&LinguisticExpr{},
+	)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func isDatabasePopulated() bool {
+	var count int64
+	DB.Model(&ArticleWord{}).Count(&count)
+	return count > 0
 }

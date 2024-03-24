@@ -1,10 +1,11 @@
 package main
 
 import (
+	"log"
+
 	"github.com/joho/godotenv"
 	"github.com/yochaipagi/dataBaseProject/controller/api"
 	"github.com/yochaipagi/dataBaseProject/controller/database"
-	"log" //asdfasdf
 )
 
 func main() {
