@@ -1,5 +1,4 @@
 package main
-// asdfasdfasdf
 import (
 	"log"
 
