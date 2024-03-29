@@ -1,6 +1,7 @@
 package database
 
 const (
+  //retrieves all the words from a specific article and orders them as they appear in the article
 	getArticleByID = `
 SELECT page_number, line_number, word_number, word
 FROM article_words
@@ -11,6 +12,8 @@ WHERE a.id = ?
 ORDER BY page_number, line_number, word_number
 `
 
+//retrieves the entire text of a specific article, along with some statistics about the article, and orders the text as it appears in the article. 
+//The ? in the WHERE clause is a placeholder that you replace with the ID of the article you want to retrieve.
 	getRawArticleByID = `
 SELECT string_agg(article_lines.line, E'\n') as article,
        AVG(words_in_line)                    AS words_in_line,
@@ -42,7 +45,8 @@ FROM word_groups
 SELECT *
 FROM linguistic_exprs
 `
-
+// creates an index of words from articles, counting the occurrences of each word and listing the locations of each occurrence. 
+//The ? placeholders in the WHERE clause would be replaced with specific conditions when you execute the query
 	getWordsIndex = `
 SELECT LOWER(word)                                                      AS word,
        COUNT(word),
@@ -57,13 +61,17 @@ WHERE ?
 GROUP BY LOWER(word)
 ORDER BY word`
 
+// checks if the lowercase version of a word is in the list of words that belong to a specific word group. 
+//This can be used to filter words based on their group membership.
 	wordsIndexWithWordGroup = `
 LOWER(word) IN (SELECT w.word
                       FROM word_groups wg
                                JOIN words w ON wg.id = w.word_group_id
                       WHERE wg.id = %s)`
 
-	getContextByPosition = `
+	//this query retrieves the content of specific lines from a specific article. 
+  //The ? placeholders in the WHERE clause are replaced with the ID of the article and the numbers of the lines when you execute the query. 
+  getContextByPosition = `
 SELECT line_number, string_agg(word, ' ') AS content
 FROM article_words aw
          JOIN article_lines al ON al.id = aw.article_line_id
