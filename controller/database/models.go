@@ -4,6 +4,7 @@ import (
 	"time"
 )
 
+// common fields to the database tables
 type Base struct {
 	ID        uint `gorm:"primarykey"`
 	CreatedAt time.Time
@@ -16,7 +17,7 @@ type Article struct {
 	Author       string        `json:"author"`
 	Title        string        `json:"title"`
 	Source       string        `json:"source"`
-	ArticlePages []ArticlePage `json:",omitempty"`
+	ArticlePages []ArticlePage `json:",omitempty"` // one to many relationship (article have many pages)
 	PagesCount   int           `json:"pages_count"`
 }
 
@@ -24,14 +25,14 @@ type ArticlePage struct {
 	Base
 	ArticleID    uint          `gorm:"index"`
 	PageNumber   int           `gorm:"index"`
-	ArticleLines []ArticleLine `json:",omitempty"`
+	ArticleLines []ArticleLine `json:",omitempty"` //one to many relationship (page have many lines)
 }
 
 type ArticleLine struct {
 	Base
 	ArticlePageID uint          `gorm:"index"`
 	LineNumber    int           `gorm:"index"`
-	ArticleWords  []ArticleWord `json:",omitempty"`
+	ArticleWords  []ArticleWord `json:",omitempty"` //one to many relationship (line have many words)
 	WordCount     int
 }
 
@@ -52,7 +53,7 @@ type WordGroup struct {
 type Word struct {
 	Base
 	WordGroupID uint   `gorm:"index"`
-	Word        string `json:"word" binding:"required"`
+	Word        string `json:"word" binding:"required"` //non empty must be represented in the json.
 }
 
 type LinguisticExpr struct {
@@ -60,7 +61,7 @@ type LinguisticExpr struct {
 	Expression string `json:"expression" binding:"required"`
 }
 
-/* rename tables */
+/* rename tables from gorm default*/
 
 func (a ArticleLine) TableName() string {
 	return "article_lines"
