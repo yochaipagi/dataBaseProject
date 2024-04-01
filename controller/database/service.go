@@ -2,17 +2,19 @@ package database
 
 import (
 	"fmt"
-	"github.com/pkg/errors"
-	"gorm.io/gorm"
 	"log"
 	"sort"
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/pkg/errors"
+	"gorm.io/gorm"
 )
 
 const dropTables = "DROP TABLE article_words; DROP TABLE article_lines; DROP TABLE article_pages; DROP TABLE articles; DROP TABLE words; DROP TABLE word_groups; DROP TABLE linguistic_exprs;"
 
+// connections between go and sql
 func ListArticles() (any, error) {
 	var articles []Article
 	res := DB.Raw(getArticles).Scan(&articles)
