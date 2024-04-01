@@ -43,7 +43,7 @@ func SetupDB() error {
 		return fmt.Errorf("failed to migrate the database: %v", err)
 	}
 
-	// Check if the database is already populated. If it is, skip the population step.
+	//Check if the database is already populated. If it is, skip the population step.
 	if isDatabasePopulated() {
 		return nil
 	}

@@ -31,7 +31,6 @@ const (
 // populateDB reads and inserts articles and other entities into the database.
 func populateDB() error {
 	var articlesToInsert []Article
-
 	// Loop through article files.
 	for i := 1; ; i++ {
 		articlePath := fmt.Sprintf("%s/%d.txt", articlesPath, i)
