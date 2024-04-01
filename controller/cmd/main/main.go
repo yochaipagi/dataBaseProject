@@ -1,4 +1,5 @@
 package main
+
 import (
 	"log"
 
@@ -8,6 +9,7 @@ import (
 )
 
 func main() {
+
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatal("error loading .env file: " + err.Error())
@@ -24,3 +26,9 @@ func main() {
 		log.Fatal("error starting the server: " + err.Error())
 	}
 }
+
+//דברים לעז:
+//איך אנחנו עושים ריסט על אמת למסד נתונים
+//בקשת פוסט לבנצ׳מארקינג
+//איפה בםועל כתוב הבנאצמארק מה בדיוק עשית איפה תהליך שינוי האינדקס אם קיים לפי ההבנה שלנו פשוט שיכפלת את הטבלה והבאת כתבה רנדומלית אנחנו טועים?
+//
