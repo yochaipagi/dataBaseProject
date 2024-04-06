@@ -9,6 +9,7 @@ import (
 	"gorm.io/gorm/logger"
 )
 
+// check
 // dsnKey is the name of the environment variable that stores the database connection string.
 const dsnKey = "DSN"
 
@@ -43,7 +44,7 @@ func SetupDB() error {
 		return fmt.Errorf("failed to migrate the database: %v", err)
 	}
 
-	// Check if the database is already populated. If it is, skip the population step.
+	//Check if the database is already populated. If it is, skip the population step.
 	if isDatabasePopulated() {
 		return nil
 	}
@@ -63,6 +64,7 @@ func SetupDB() error {
 func migrateDB() error {
 	// Automatically migrate the schema, creating or altering tables to match the struct definitions.
 	err := DB.AutoMigrate(
+
 		&Article{},
 		&ArticleLine{},
 		&ArticleWord{},

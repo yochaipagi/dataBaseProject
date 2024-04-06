@@ -5,29 +5,42 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// SetupRouter initializes and configures the Gin router, setting up routes and their corresponding handlers.
 func SetupRouter() *gin.Engine {
+	// Initialize the default Gin router with default middleware (logger and recovery middleware).
 	r := gin.Default()
+
+	// Configure CORS (Cross-Origin Resource Sharing) settings for the API to allow interactions from different origins.
 	r.Use(cors.New(cors.Config{
-		AllowOrigins: []string{"*"},
-		AllowMethods: []string{"POST", "PUT", "PATCH", "DELETE"},
-		AllowHeaders: []string{"Content-Type,access-control-allow-origin, access-control-allow-headers"},
+		AllowOrigins: []string{"*"},                                                                      // Allow all origins
+		AllowMethods: []string{"POST", "PUT", "PATCH", "DELETE"},                                         // Allow specific HTTP methods
+		AllowHeaders: []string{"Content-Type,access-control-allow-origin, access-control-allow-headers"}, // Allow specific headers
 	}))
 
-	r.GET("/articles", listArticles)
-	r.POST("/articles", createArticle)
-	r.GET("/articles/:id", getArticle)
-	r.GET("/articles/:id/ling_expr_pos", getLingExprPos)
+	// Define API endpoints and associate them with handler functions.
 
-	r.GET("/article_words", getWordByPosition)
-	r.GET("/article_words/index", getWordsIndex)
+	// Article-related routes:
+	r.GET("/articles", listArticles)                     // Fetches a list of articles.
+	r.POST("/articles", createArticle)                   // Creates a new article.
+	r.GET("/articles/:id", getArticle)                   // Fetches a specific article by ID.
+	r.GET("/articles/:id/ling_expr_pos", getLingExprPos) // Fetches linguistic expression positions within an article.
 
-	r.GET("/word_groups", listWordGroups)
-	r.POST("/word_groups", createWordGroup)
-	r.POST("/word_groups/:id", addWordToWordGroup)
+	// Word-related routes:
+	r.GET("/article_words", getWordByPosition)   // Fetches a word by its position in an article.
+	r.GET("/article_words/index", getWordsIndex) // Fetches an index of words within articles.
 
-	r.GET("/ling_exprs", listLinguisticExpr)
-	r.POST("/ling_exprs", createLinguisticExpr)
+	// Word group-related routes:
+	r.GET("/word_groups", listWordGroups)          // Lists all word groups.
+	r.POST("/word_groups", createWordGroup)        // Creates a new word group.
+	r.POST("/word_groups/:id", addWordToWordGroup) // Adds a new word to a word group.
 
-	r.POST("/benchmark", benchmark) // WARNING: this will reset the DB
+	// Linguistic expression-related routes:
+	r.GET("/ling_exprs", listLinguisticExpr)    // Lists all linguistic expressions.
+	r.POST("/ling_exprs", createLinguisticExpr) // Creates a new linguistic expression.
+
+	// Benchmark-related route:
+	r.POST("/benchmark", benchmark) // Triggers a benchmarking process. Warning: this can reset the database.
+
+	// Return the configured router.
 	return r
 }
