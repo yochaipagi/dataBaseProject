@@ -64,6 +64,7 @@ func SetupDB() error {
 func migrateDB() error {
 	// Automatically migrate the schema, creating or altering tables to match the struct definitions.
 	err := DB.AutoMigrate(
+
 		&Article{},
 		&ArticleLine{},
 		&ArticleWord{},

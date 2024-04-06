@@ -76,6 +76,7 @@ func populateDB() error {
 			return err
 		}
 		return nil
+
 	})
 
 	if err != nil {
