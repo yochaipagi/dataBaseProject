@@ -9,6 +9,7 @@ import (
 	"gorm.io/gorm/logger"
 )
 
+// check
 // dsnKey is the name of the environment variable that stores the database connection string.
 const dsnKey = "DSN"
 
