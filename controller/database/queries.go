@@ -30,6 +30,7 @@ FROM (SELECT string_agg(word, ' ' ORDER BY word_number) AS line,
       WHERE a.id = ?
       GROUP BY page_number, line_number
       ORDER BY page_number, line_number) AS article_lines`
+
 	// getArticles fetches all records from the articles table.
 
 	getArticles = `
@@ -50,6 +51,7 @@ FROM linguistic_exprs
 `
 	// creates an index of words from articles, counting the occurrences of each word and listing the locations of each occurrence.
 	//The ? placeholders in the WHERE clause would be replaced with specific conditions when you execute the query
+	//the query to test bunchmarking
 	getWordsIndex = `
 SELECT LOWER(word)                                                      AS word,
        COUNT(word),

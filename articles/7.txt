@@ -1,37 +1,33 @@
-Wisconsin assembly speaker says Trump called him this month to decertify 2020 election
-By Paul LeBlanc, CNN
+Instagram to crack down on teen sextortion
+By Samantha Murphy Kelly, CNN
 
-Updated: Wed, 20 Jul 2022 17:19:34 GMT
+Updated: 4:00 AM EDT, Thu April 11, 2024
 
 Source: CNN
 
-Wisconsin Assembly Speaker Robin Vos said former President Donald Trump called him last week as part of a fresh effort to decertify the state's 2020 presidential election results.
+Instagram is aiming to make it harder for potential scammers and criminals to coerce teens into sending nude photos and extort them for money.
 
-"He would like us to do something different in Wisconsin," Vos, a Republican, explained to CNN affiliate WISN in relaying his phone conversation with Trump.
-"I explained it's not allowed under the Constitution.
-He has a different opinion."
+The company announced on Thursday it is testing new features to curb an alarming trend called financial sextortion, which often targets kids and teenagers. Once the nude images are sent, the scammers claim they’ll post them online, either on public websites or on newsfeeds where their friends will see, unless the victims send money or gift cards.
 
-Trump's latest effort to overturn his election loss, according to Vos, rests on a recent state Supreme Court ruling that bars the use of most ballot drop boxes in Wisconsin, and states that no one can return a ballot in person on behalf of another voter.
+In the upcoming weeks and among a subset of users, Instagram said it will roll out various new features, such as blurring nude images sent in direct messages and informing users when they’ve interacted with someone who engaged in financial sextortion. The tools will come to all users worldwide soon after.
 
-Vos said he explained to Trump that the ruling does not mean the use of ballot drop boxes in the 2020 election were illegal, but that "going forward it can't happen."
+“It is a really horrific crime that preys on making people feel alone and ashamed,” Antigone Davis, Meta’s director of global safety, told CNN. “It’s been well documented that the crime is growing, and this is one of the reasons that we want to get out ahead and make sure people are aware of what we’re doing as we continually evolve our tools.”
 
-"I think we all know Donald Trump is Donald Trump," Vos told WISN.
-"There's very little we can do to control or predict what he will do."
+Non-consensual sharing of nude images has been a problem for years, typically among people who seek revenge on victims they know personally. But the FBI recently said it has seen an increase in financial sextortion﻿ cases from strangers, often started by scammers overseas. In some cases, sextortion has resulted in suicide.
 
-On his social media platform Truth Social Tuesday evening, the former President hailed the Wisconsin Supreme Court ruling as "Great" and "a time to act!" without specifying how.
+Meta’s latest tools build on Meta’s existing, related teen safety features, including strict settings that prevent messaging between non-connected accounts, an increase in safety notices and an option to report DMs that threaten to share or request intimate images. Last year, Meta teamed up with the National Center for Missing and Exploited Children (NCMEC) to develop Take It Down, a platform that lets young people create a unique digital fingerprint for explicit images they want taken down from the internet.
 
-"Robin, don't let the voters of Wisconsin down!" Trump wrote.
+The tools also come as Meta, along with other social networks, face thousands of wrongful death lawsuits about how the platforms have caused harm to young users, from facilitating the sales of lethal drugs to enabling eating disorders and social media addictions.
 
-Drop boxes have grown in popularity in recent elections in the Badger State: More than 520 ballot drop boxes were used in the 2020 general election, with that number increasing to 570 across 66 of Wisconsin's 72 counties during spring elections in 2021, according to numbers cited in the state Supreme Court decision.
+How the new tools work
+Meta told CNN it will first test its nudity protection feature within Instagram’s direct messages. When an explicit picture is sent, the platform will blur the image and inform the recipient that it contains nudity. The alert will also remind users they don’t need to respond and ask them if they want to block the sender. A notification will also appear when the platform detects a user wants to send a nude photo, nudging them to reconsider.
 
-But the court's majority ruled that the Wisconsin Election Commission -- a six-member panel that helps oversee voting in the state -- had overstepped its authority when it issued guidance to local election clerks to allow the use of drop boxes to return absentee ballots in the 2020 election, during the height of the pandemic.
+The tool will be on by default for teens under age 18, but adults will also receive a notification encouraging them to enable the tool.
 
-Voting rights groups and Democrats have argued that restricting ballot drop boxes will make it harder for some residents to vote, especially those with disabilities.
-But conservative interests in Wisconsin have maintained that voting practices employed in the state during the 2020 election, such as the widespread use of ballot drop boxes, violated state law and opened the door to potential fraud.
+The company told CNN that Meta’s technology uses on-device machine learning to determine if a photo contains nudity. Meta already prohibits nudity on news feeds and other public areas of its platforms.
 
-Critics of the 2020 election have not offered evidence that widespread fraud altered the results of the presidential race, and the state Supreme Court ruling comes amid the backdrop of a competitive primary season in Wisconsin and beyond.
+Meta said it is also working on ways to identify accounts that may be engaging in sextortion scams by detecting and monitoring likely sextortion behavior. This includes making those accounts more difficult to interact with, such as blocking outgoing messages, or alerting users who may have interacted with an account that’s been removed for sextortion. The message will direct them to expert-backed resources, according to the company.
 
-Wisconsin will be a key swing state in 2024.
-President Joe Biden won it by a little more than 20,600 votes in 2020 after Trump captured it four years earlier by fewer than 23,000 votes.
+In November, Meta joined a program called Lantern, operated by industry group Tech Coalition, that enables tech companies to share information about accounts and behaviors that violate their child safety. The company said it is now adding integration with its latest sextortion prevention tools; for example, if a link originated on another social media network before it was shared on Instagram, the other platform would be notified.
 
-Trump has strongly hinted that he will again run for president in 2024 and that an announcement is imminent, though he continues to rail against the outcome of the 2020 election, often relying on debunked or unfounded claims.
+“What I would like to see accomplished with this announcement is that parents are more aware of this crime and take time to learn about it,” Davis said. “I also want to make sure parents know it’s important to let their kids know that it is okay to come to them if something has happened. They shouldn’t feel ashamed to come forward and there are tools available that can help.”
