@@ -8,6 +8,8 @@ import (
 // dateLayout specifies the format expected for article publication dates.
 const dateLayout = time.RFC1123
 
+//const dateLayout = "03:04 PM MST, Mon January 2, 2006"
+
 // parseArticle converts a NewArticle struct into an Article struct, structuring its content into pages and lines.
 func parseArticle(newArticle NewArticle) (Article, error) {
 	// Split the raw article content into lines.

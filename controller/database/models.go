@@ -11,6 +11,7 @@ type Base struct {
 	UpdatedAt time.Time
 }
 
+// construct the tables for automigration later
 type Article struct {
 	Base
 	PublishedAt  time.Time     `json:"published_at"`
