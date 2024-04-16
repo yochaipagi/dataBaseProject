@@ -10,7 +10,7 @@ import (
 
 func main() {
 
-	err := godotenv.Load()
+	err := godotenv.Load("/Users/yochaipagi/studying/Cs/dataBaseProject/controller/.env")
 	if err != nil {
 		log.Fatal("error loading .env file: " + err.Error())
 	}
