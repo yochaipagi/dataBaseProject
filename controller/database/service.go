@@ -232,43 +232,51 @@ func getExprOccurrences(words wordsRes, expr string) wordsRes {
 	return matches
 }
 
-// BenchmarkQuery performs a set of queries to benchmark database performance.
+// BenchmarkQuery performs a series of database queries to measure performance.
+// It replicates queries based on a given number of replicates and increases the database size for the test.
 func BenchmarkQuery(replicates int, dbSize int) (any, error) {
-	// Duplicate the database content to increase its size for benchmarking.
+	// Attempt to duplicate the database contents to expand the database size for benchmarking purposes.
+	// This helps in simulating a more loaded database environment.
 	insertionTime, err := duplicateDB(dbSize)
 	if err != nil {
+		// Return an error if duplicating the database fails
 		return nil, err
 	}
 
-	// Fetch a random article to use in benchmarking queries.
+	// Retrieve a random article from the database to use as the subject of the benchmarking queries.
 	randomArticle := &Article{}
 	res := DB.First(randomArticle)
 	if res.Error != nil {
+		// Return an error if fetching the article fails
 		return nil, res.Error
 	}
 
+	// Log the start of the benchmark using the ID of the article
 	log.Printf("Starting benchmark with article ID %d", randomArticle.ID)
 	totalTime := 0
-	var results []int
+	var results []int // This will store the duration of each query replicate for analysis
 
-	// Perform the benchmarking queries multiple times.
+	// Execute the benchmark query multiple times according to the number of replicates specified
 	for i := 0; i < replicates; i++ {
-		start := time.Now()
+		start := time.Now() // Record the start time of the query
 		_, err := GetWordsIndex(strconv.Itoa(int(randomArticle.ID)), "")
 		if err != nil {
+			// Return an error if any query fails during the benchmarking
 			return nil, err
 		}
-		elapsed := int(time.Since(start).Milliseconds())
-		totalTime += elapsed
-		results = append(results, elapsed)
+		elapsed := int(time.Since(start).Milliseconds()) // Calculate the elapsed time in milliseconds
+		totalTime += elapsed                             // Add the elapsed time to the total time
+		results = append(results, elapsed)               // Append the result for this replicate to the results slice
 	}
 
-	// Reset the database after benchmarking.
+	// Reset the database to its original state after benchmarking to avoid polluting subsequent tests.
 	if err := resetDB(); err != nil {
+		// Return an error if resetting the database fails
 		return nil, err
 	}
 
-	// Return the benchmarking results.
+	// Compile the benchmarking results into a structured response.
+	// This includes the total insertion time for duplicating the database, the average query time, and all individual query times.
 	return benchmarkRes{
 		InsertionTime:      insertionTime,
 		AverageQueryTime:   totalTime / replicates,
