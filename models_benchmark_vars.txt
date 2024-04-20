@@ -195,7 +195,7 @@ Hash indexes on primary and foreign keys, and additional columns
 */
 
 type Base struct {
-	ID        uint `gorm:"primarykey"`
+	ID        uint `gorm:"primarykey"` //index on the primery key
 	CreatedAt time.Time
 	UpdatedAt time.Time
 }
@@ -219,7 +219,7 @@ type ArticlePage struct {
 
 type ArticleLine struct {
 	Base
-	ArticlePageID uint `gorm:"index:,type:hash"`
+	ArticlePageID uint `gorm:"index:,type:hash"` 
 	LineNumber    int `gorm:"index:,type:hash"`
 	ArticleWords  []ArticleWord `json:",omitempty"`
 	WordCount     int
