@@ -61,7 +61,7 @@ func populateDB() error {
 
 	// Prepare a linguistic expression to insert.
 	lingToInsert := LinguisticExpr{
-		Expression: "Even with",
+		Expression: "United States",
 	}
 
 	// Insert data into the database within a transaction.
