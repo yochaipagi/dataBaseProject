@@ -13,7 +13,7 @@ func parseArticle(newArticle NewArticle) (Article, error) {
 	// Split the raw article content into lines.
 	rawArticleLines := strings.Split(newArticle.RawContent, "\n")
 
-	// Organize the lines into pages.
+	// Organize the lines into single pages.
 	pages := getArticlePages(rawArticleLines)
 
 	// Parse the publication date using the specified layout.
