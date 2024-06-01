@@ -85,4 +85,18 @@ FROM article_words aw
 WHERE a.id = ?
   AND line_number IN ?
 GROUP BY line_number`
+
+	// getWordByPosition retrieves the word at a specific position in an article.
+	// It takes the article ID, page number, line number, and word number as parameters.
+	// It returns the word at that position, or an error if the query fails.
+
+	getWordByPosition = ` SELECT aw.word
+FROM article_words aw
+JOIN article_lines al ON al.id = aw.article_line_id
+JOIN article_pages ap ON ap.id = al.article_page_id
+JOIN articles a ON a.id = ap.article_id
+WHERE a.id = ?
+  AND ap.page_number = ?
+  AND al.line_number = ?
+  AND aw.word_number = ? `
 )

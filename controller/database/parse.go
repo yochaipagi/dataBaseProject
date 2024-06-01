@@ -21,7 +21,6 @@ func parseArticle(newArticle NewArticle) (Article, error) {
 	if err != nil {
 		return Article{}, err // Return an error if the date parsing fails.
 	}
-
 	// Construct and return an Article struct with the parsed data.
 	return Article{
 		Title:        newArticle.Title,
