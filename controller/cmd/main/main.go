@@ -19,10 +19,20 @@ func main() {
 	if err != nil {
 		log.Fatal("error setting up db: " + err.Error())
 	}
+	/*replicates := 10 // מספר השאילתות לביצוע לצורך המדידה
+	dbSize := 2      // הכפלת בסיס הנתונים לצורך המדידה
+
+	result, err := database.BenchmarkQuery(replicates, dbSize)
+	if err != nil {
+		log.Fatalf("Failed to benchmark the database: %v", err)
+	}
+	fmt.Printf("Benchmark results: %+v\n", result)
+	*/ //if the api for benchmarking deosnt work proprly
 
 	router := api.SetupRouter()
 	err = router.Run(":9090")
 	if err != nil {
 		log.Fatal("error starting the server: " + err.Error())
 	}
+
 }

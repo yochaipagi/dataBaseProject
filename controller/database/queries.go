@@ -61,7 +61,7 @@ FROM article_words aw
          JOIN article_lines al ON al.id = aw.article_line_id
          JOIN article_pages ap ON ap.id = al.article_page_id
          JOIN articles a ON a.id = ap.article_id
-WHERE ?
+WHERE ? 
   AND ?
 GROUP BY LOWER(word)
 ORDER BY word`
@@ -69,7 +69,7 @@ ORDER BY word`
 	// checks if the lowercase version of a word is in the list of words that belong to a specific word group.
 	//This can be used to filter words based on their group membership.
 	wordsIndexWithWordGroup = `
-LOWER(word) IN (SELECT w.word
+LOWER(word) IN (SELECT w.word  
                       FROM word_groups wg
                                JOIN words w ON wg.id = w.word_group_id
                       WHERE wg.id = %s)`
@@ -89,7 +89,7 @@ GROUP BY line_number`
 	// getWordByPosition retrieves the word at a specific position in an article.
 	// It takes the article ID, page number, line number, and word number as parameters.
 	// It returns the word at that position, or an error if the query fails.
-
+	//simplifaid
 	getWordByPosition = ` SELECT aw.word
 FROM article_words aw
 JOIN article_lines al ON al.id = aw.article_line_id
